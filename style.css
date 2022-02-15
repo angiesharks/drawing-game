@@ -1,0 +1,30 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #3954af;
+  margin-top: 60px;
+  position: relative;
+  margin: auto;
+}
+#controls {
+  margin: auto;
+  margin-bottom: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+button {
+  background-color: lightgoldenrodyellow;
+  color: darkblue;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 3px solid darkblue;  
+
+}

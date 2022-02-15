@@ -1,0 +1,119 @@
+import {ctx, canvas} from './canvas';
+import {makeButton} from './controls';
+ 
+let felixButton = makeButton('Lavender')
+felixButton.addEventListener(
+"click",
+function () {
+  ctx.strokeStyle = "#E6E6FA";})
+
+let kaiButton = makeButton('LightYellow')
+kaiButton.addEventListener(
+  "click",
+  function () {
+    ctx.strokeStyle = "#F8F1AE"
+  }
+)
+let bahiyyihButton = makeButton('DarkBlue')
+bahiyyihButton.addEventListener(
+  "click",
+  function(){
+    ctx.strokeStyle = "#052CA3"
+  }
+)
+let dotButton = makeButton ('Dot')
+dotButton.addEventListener (
+  'mousemove',
+  function() {}
+)
+let lineButton = makeButton('Line');
+lineButton.addEventListener(
+  "mousemove", 
+  function () {})
+
+let triangleButton = makeButton('Triangle');
+triangleButton.addEventListener(
+  "click",
+  function () {}
+)
+let squareButton = makeButton('Square');
+squareButton.addEventListener(
+  "click",
+  function () {}
+)
+
+let clearButton = makeButton('Clear');
+clearButton.addEventListener(
+  "click",
+  function () {
+    ctx.clearRect(
+      0,0,canvas.width,canvas.height
+    )
+  }
+)
+
+function drawTriangle (
+  x:number,
+  y:number,
+){
+  ctx.beginPath();
+    ctx.moveTo(x,y)
+    ctx.lineTo(x+40,y+60)
+    ctx.lineTo(x+50,y+20)
+    ctx.lineTo(x,y)
+    ctx.stroke(); 
+}
+
+let drawFunction = drawTriangle;
+
+function drawDot (
+x:number,
+y:number,
+){
+ctx.beginPath(); 
+ctx.arc(x, y, 10, 0, 2*Math.PI)
+ctx.fill(); 
+}
+
+
+canvas.addEventListener(
+  "click", 
+  function (event){
+    drawFunction(event.offsetX,event.offsetY);})
+
+function drawLine (
+  x:number,
+  y:number, 
+  ){
+  ctx.beginPath(); 
+  ctx.moveTo (x,y)
+  ctx.lineTo (x+100,y+40)
+  ctx.stroke ()
+  }
+  
+canvas.addEventListener(
+  "mousemove", 
+  function (event){
+    drawFunction(event.offsetX,event.offsetY);})
+
+
+triangleButton.addEventListener(
+  "click",
+  function() {
+    drawFunction=drawTriangle
+  }
+)
+
+lineButton.addEventListener(
+  "mousemove",
+  function() {
+    drawFunction=drawLine
+  }
+)
+
+dotButton.addEventListener(
+  "mousmove",
+  function(){
+    drawFunction=drawDot
+  }
+)
